@@ -1,5 +1,7 @@
+import amazon.TestBase;
 import amazon.config.EnvFactory;
 import amazon.factories.DriverFactory;
+import amazon.pages.HomePage;
 import com.typesafe.config.Config;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -8,10 +10,9 @@ import org.openqa.selenium.WebDriver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestSandbox {
+public class TestSandbox extends TestBase {
     private static Config config = EnvFactory.getInstance().getConfig();
     private static final String HOME_PAGE_URL = config.getString("HOME_PAGE_URL");
-    private WebDriver driver = DriverFactory.getDriver();
 
     @Tag("smokeTest")
     @DisplayName("This test is for demo purpose only to show that the basic code works." +
@@ -19,6 +20,16 @@ public class TestSandbox {
     @Test
     void assertThatHomePageTitleIsCorrect() {
         driver.get(HOME_PAGE_URL);
+        assertEquals("Amazon.com. Spend less. Smile more.", driver.getTitle());
+    }
+
+    @Test
+    void test() throws Exception {
+        driver.get(HOME_PAGE_URL);
+        homePage()
+                .clickHMenuButton()
+                .clickTVAndAppliances()
+                .clickTelevision();
         assertEquals("Amazon.com. Spend less. Smile more.", driver.getTitle());
     }
 }
