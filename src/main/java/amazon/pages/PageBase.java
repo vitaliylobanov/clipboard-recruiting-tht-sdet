@@ -3,6 +3,7 @@ package amazon.pages;
 import amazon.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,5 +27,11 @@ public class PageBase {
             return null;
         }
         return element;
+    }
+
+    public void scrollAndClick(WebElement element)
+    {
+        Actions action = new Actions(TestBase.driver);
+        action.moveToElement(element).click().perform();
     }
 }

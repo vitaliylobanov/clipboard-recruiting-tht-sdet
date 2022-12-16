@@ -27,7 +27,8 @@ public class TestSandbox extends TestBase {
         homePage()
                 .clickHMenuButton()
                 .clickTVAndAppliances()
-                .clickTelevision();
+                .clickTelevision()
+                .chooseBrand("Samsung");
         assertEquals("Amazon.com. Spend less. Smile more.", driver.getTitle());
     }
 }
