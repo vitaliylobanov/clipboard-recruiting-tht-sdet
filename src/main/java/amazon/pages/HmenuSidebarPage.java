@@ -1,9 +1,11 @@
 package amazon.pages;
 
 public class HmenuSidebarPage extends PageBase{
-    public  HmenuSidebarPage () throws Exception{
-        // to do verify on page
 
+    private String hMenuSidebarPageXpath = "//ul[contains(@class, 'hmenu hmenu-visible')]";
+
+    public  HmenuSidebarPage () throws Exception{
+        if (patientlyByXPath(hMenuSidebarPageXpath) == null) throw new Exception("not on SideBarPage page");
     }
 
     private String tvAndApplianceButtonXpath = "//div[contains(text(), 'TV, Appliances, Electronics')]";

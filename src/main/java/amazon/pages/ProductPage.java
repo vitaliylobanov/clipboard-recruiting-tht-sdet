@@ -10,7 +10,6 @@ public class ProductPage extends PageBase {
 
     public  ProductPage () throws Exception{
         if (patientlyByXPath(aboutItemXpath) == null) throw new Exception("not on Results page");
-
     }
 
     private String infoAboutItemXpath = "//ul[contains(@class, 'a-unordered-list a-vertical a-spacing-mini')]//li";

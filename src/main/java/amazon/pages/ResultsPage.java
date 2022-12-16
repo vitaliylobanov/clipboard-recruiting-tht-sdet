@@ -31,5 +31,4 @@ public class ResultsPage extends PageBase{
     public void chooseItemFromSearchList(String itemNumber) {
         scrollAndClick(patientlyByXPath(String.format(chooseResultByPositionXpath, itemNumber)));
     }
-
 }
