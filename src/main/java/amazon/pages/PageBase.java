@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class PageBase {
 
@@ -27,6 +28,11 @@ public class PageBase {
             return null;
         }
         return element;
+    }
+
+    public List<WebElement> byXPath(String xpath) {
+        List<WebElement> elements = TestBase.driver.findElements(By.xpath(xpath));
+        return elements;
     }
 
     public void scrollAndClick(WebElement element)

@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestSandbox extends TestBase {
@@ -22,8 +24,9 @@ public class TestSandbox extends TestBase {
         assertEquals("Amazon.com. Spend less. Smile more.", driver.getTitle());
     }
 
+    @DisplayName("This test covering home exercise for amazon.in page")
     @Test
-    void test() throws Exception {
+    void amazonTest() throws Exception {
         driver.get(HOME_PAGE_URL);
         homePage()
                 .clickHMenuButton()
@@ -33,6 +36,9 @@ public class TestSandbox extends TestBase {
                 .openSortDropdown()
                 .choseSortOption(resultsPage().PriceHighToLow)
                 .chooseItemFromSearchList("2");
-        assertEquals("Amazon.com. Spend less. Smile more.", driver.getTitle());
+        ArrayList<String> tabs = getNumberOfTabs();
+        switchTab(tabs.get(1));
+        //please note asserting that we see about item text is happening on Product page class line 12.
+        logger.info("About this item: " + productPage().getInfoAboutTheItem());
     }
 }
