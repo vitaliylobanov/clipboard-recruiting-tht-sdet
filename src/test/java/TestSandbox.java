@@ -11,8 +11,6 @@ import org.openqa.selenium.WebDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestSandbox extends TestBase {
-    private static Config config = EnvFactory.getInstance().getConfig();
-    private static final String HOME_PAGE_URL = config.getString("HOME_PAGE_URL");
 
     @Tag("smokeTest")
     @DisplayName("This test is for demo purpose only to show that the basic code works." +
