@@ -2,6 +2,7 @@ import amazon.TestBase;
 import amazon.config.EnvFactory;
 import amazon.factories.DriverFactory;
 import amazon.pages.HomePage;
+import amazon.pages.ResultsPage;
 import com.typesafe.config.Config;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -28,7 +29,10 @@ public class TestSandbox extends TestBase {
                 .clickHMenuButton()
                 .clickTVAndAppliances()
                 .clickTelevision()
-                .chooseBrand("Samsung");
+                .chooseBrand("Samsung")
+                .openSortDropdown()
+                .choseSortOption(resultsPage().PriceHighToLow)
+                .chooseItemFromSearchList("2");
         assertEquals("Amazon.com. Spend less. Smile more.", driver.getTitle());
     }
 }

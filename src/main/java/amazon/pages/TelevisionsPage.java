@@ -8,9 +8,9 @@ public class TelevisionsPage extends PageBase{
     private String searchByBrandXpath = "//span[contains(text(), '%s')]/..//input";
 
 
-    public TelevisionsPage chooseBrand (String brandName) throws Exception{
+    public ResultsPage chooseBrand (String brandName) throws Exception{
         scrollAndClick(patientlyByXPath(String.format(searchByBrandXpath, brandName)));
-        return new TelevisionsPage();
+        return new ResultsPage();
     }
 
 }
